@@ -1,3 +1,7 @@
+body{
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -9,22 +13,32 @@ nav {
   padding: 20px 0px 20px 0px;
   text-align: center;
   width: 800px; 
-  border: 1px solid lightgrey;
+  box-shadow: 5px 10px 15px #888888;
 
 }
 main {
   text-align: center;
   width: 800px;
   height: 600px; 
-  border: 1px solid lightgrey;
+  box-shadow: 5px 10px 15px #888888;
 
 }
 
-/* .bookmarks {
-  display: flex;
-  gap: 50px;
+form {
+  margin-top: 50px;
 }
 
-#button {
-  align-self: start;  
-} */
+a:link, a:visited{
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  color: white;
+  text-align: center;
+  background-color: rgb(81, 124, 189);
+  padding: 10px 20px
+}
+
+
