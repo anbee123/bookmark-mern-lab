@@ -22,7 +22,7 @@ function Index(props) {
                 <Link to = {`/bookmarks/${bookmark._id}`}>
                 <h3>{bookmark.title}</h3>
                 </Link>
-                <h3>{bookmark.url}</h3>
+                <p>{bookmark.url}</p>
                 {/* anonymous function: use when you need pass arguments */}
                 <button id = "button" onClick = {()=>removeBookmark(bookmark._id)}>Delete</button>
             </div>
