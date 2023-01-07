@@ -1,32 +1,30 @@
-import {Link,useNavigate, useParams} from "react-router-dom"
+import {Link} from "react-router-dom"
 import {useState} from "react"
 
 
 
 function Index(props) {
 
-    let navigate = useNavigate()
-
     const [newForm, setNewForm] = useState({
         title: "", 
         url: "",
     }) 
 
-    const removeBookmark = () => {
+    const removeBookmark = (id) => {
 
-        console.log(props.bookmark)
-
+        props.deleteBookmark(id)
     }
 
     const loaded = () => {
 
         return props.bookmark.map((bookmark) => (
-            <div key = {bookmark._id}>
+            <div className = "bookmarks" key = {bookmark._id}>
                 <Link to = {`/bookmarks/${bookmark._id}`}>
                 <h3>{bookmark.title}</h3>
                 </Link>
                 <h3>{bookmark.url}</h3>
-                <button onClick = {removeBookmark}>Delete</button>
+                {/* anonymous function: use when you need pass arguments */}
+                <button id = "button" onClick = {()=>removeBookmark(bookmark._id)}>Delete</button>
             </div>
         ))
     }
@@ -50,8 +48,7 @@ function Index(props) {
 
     }
 
-    
-
+ 
     const loading = () => {
         return <h1>Loading...</h1>
       }
@@ -78,13 +75,11 @@ function Index(props) {
                     value = "Add Bookmark"
                 />
             </form>
-            {props.bookmark ? loaded() : loading()}
+                {props.bookmark ? loaded() : loading()}
         </section>
 
    )
 
-   
-   
   }
   
   export default Index;
